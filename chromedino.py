@@ -17,38 +17,38 @@ SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 pygame.display.set_caption("Chrome Dino Runner")
 
-Ico = pygame.image.load("assets/DinoWallpaper.png")
+Ico = pygame.image.load(os.path.join(("ChromeDinoRunner/assets/DinoWallpaper.png")))
 pygame.display.set_icon(Ico)
 
 RUNNING = [
-    pygame.image.load(os.path.join("assets/Dino", "DinoRun1.png")),
-    pygame.image.load(os.path.join("assets/Dino", "DinoRun2.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Dino", "DinoRun1.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Dino", "DinoRun2.png")),
 ]
-JUMPING = pygame.image.load(os.path.join("assets/Dino", "DinoJump.png"))
+JUMPING = pygame.image.load(os.path.join("ChromeDinoRunner/assets/Dino", "DinoJump.png"))
 DUCKING = [
-    pygame.image.load(os.path.join("assets/Dino", "DinoDuck1.png")),
-    pygame.image.load(os.path.join("assets/Dino", "DinoDuck2.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Dino", "DinoDuck1.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Dino", "DinoDuck2.png")),
 ]
 
 SMALL_CACTUS = [
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus1.png")),
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus2.png")),
-    pygame.image.load(os.path.join("assets/Cactus", "SmallCactus3.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "SmallCactus1.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "SmallCactus2.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "SmallCactus3.png")),
 ]
 LARGE_CACTUS = [
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus1.png")),
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus2.png")),
-    pygame.image.load(os.path.join("assets/Cactus", "LargeCactus3.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "LargeCactus1.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "LargeCactus2.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Cactus", "LargeCactus3.png")),
 ]
 
 BIRD = [
-    pygame.image.load(os.path.join("assets/Bird", "Bird1.png")),
-    pygame.image.load(os.path.join("assets/Bird", "Bird2.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Bird", "Bird1.png")),
+    pygame.image.load(os.path.join("ChromeDinoRunner/assets/Bird", "Bird2.png")),
 ]
 
-CLOUD = pygame.image.load(os.path.join("assets/Other", "Cloud.png"))
+CLOUD = pygame.image.load(os.path.join("ChromeDinoRunner/assets/Other", "Cloud.png"))
 
-BG = pygame.image.load(os.path.join("assets/Other", "Track.png"))
+BG = pygame.image.load(os.path.join("ChromeDinoRunner/assets/Other", "Track.png"))
 
 FONT_COLOR=(0,0,0)
 
@@ -204,21 +204,21 @@ def main():
     death_count = 0
     pause = False
 
-    def score():
-        global points, game_speed
-        points += 1
-        if points % 100 == 0:
-            game_speed += 1
-        current_time = datetime.datetime.now().hour
-        with open("score.txt", "r") as f:
-            score_ints = [int(x) for x in f.read().split()]  
-            highscore = max(score_ints)
-            if points > highscore:
-                highscore=points 
-            text = font.render("High Score: "+ str(highscore) + "  Points: " + str(points), True, FONT_COLOR)
-        textRect = text.get_rect()
-        textRect.center = (900, 40)
-        SCREEN.blit(text, textRect)
+    #def score():
+        #global points, game_speed
+        #points += 1
+        #if points % 100 == 0:
+            #game_speed += 1
+        #current_time = datetime.datetime.now().hour
+        #with open("score.txt", "r") as f:
+            #score_ints = [int(x) for x in f.read().split()]  
+            #highscore = max(score_ints)
+            #if points > highscore:
+                #highscore=points 
+            #text = font.render("High Score: "+ str(highscore) + "  Points: " + str(points), True, FONT_COLOR)
+        #textRect = text.get_rect()
+        #textRect.center = (900, 40)
+        #SCREEN.blit(text, textRect)
 
     def background():
         global x_pos_bg, y_pos_bg
@@ -292,7 +292,7 @@ def main():
         cloud.draw(SCREEN)
         cloud.update()
 
-        score()
+        #score()
 
         clock.tick(30)
         pygame.display.update()
